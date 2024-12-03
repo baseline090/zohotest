@@ -4,14 +4,13 @@ const express = require('express');
 const mongoose = require('mongoose');
 const Lead = require('./models/Lead'); 
 
-const { MONGO_URI, PORT } = process.env;
 
 const app = express();
 app.use(express.json()); 
 app.use(express.urlencoded({ extended: true }));
 
 
-mongoose.connect(MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect("mongodb+srv://baseline85611:deqShy5XLx9bAKYq@cluster0.2bbl8.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0", { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => console.log('Connected to MongoDB'))
   .catch((err) => console.error('MongoDB connection error:', err));
 
@@ -35,6 +34,6 @@ app.post('/webhook/zoho/leads', async (req, res) => {
   }
 });
 
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
+app.listen(5000, () => {
+  console.log(`Server running on port ${"5000"}`);
 });
